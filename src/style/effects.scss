@@ -1,0 +1,83 @@
+
+.fru-enter{
+    position: relative;
+    right: 600px;
+    opacity: 0;
+
+}
+.fru-enter-active, .fru-enter-done{
+    position: relative;
+    right: 0px;
+    top: 0px;
+    opacity: 1;
+    transition: all 1s;
+}
+
+.fru-exit{
+    position: relative;
+    left: 0px;
+    opacity: 1;
+    
+}
+.fru-exit-active, .fru-exit-done{
+   
+        position: relative;
+        left: 600px;
+        opacity: 0;
+        transition: all 0.8s;
+}
+
+.arrive-enter{
+    visibility: visible !important;
+    position: relative;
+top:400px;
+opacity: 0;
+z-index: 10;
+}
+
+.arrive-enter-active, .arrive-enter-done{
+    visibility: visible !important;
+    position: relative;
+top:0px;
+opacity: 1;
+transition: all 0.8s;
+z-index: 10;
+}
+
+.arrive-exit{
+    visibility: visible !important;
+    position: relative;
+top:0px;
+opacity: 1;
+}
+
+.arrive-exit-active, .arrive-exit-done{
+    visibility: visible !important;
+    position: relative;
+top:400px;
+opacity: 0;
+transition: all 0.5s;
+}
+
+.rotate-enter{
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: all 1.5s;
+}
+
+.rotate-enter-active, .rotate-enter-done{
+    transform: rotateY(360deg);
+    transform-style: preserve-3d;
+    transition: all 1.5s;
+}
+
+.rotate-exit{
+    transform-style: preserve-3d;
+    transform: rotateY(360deg);
+    transition: all 1.5s;
+}
+.rotate-exit-active, .rotate-exit-done{
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    transition: all 1.5s;
+}

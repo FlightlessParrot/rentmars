@@ -1,0 +1,11 @@
+@use 'colors';
+@mixin orange_font{
+    color: colors.$orange;
+    font-size: 30px;
+    font-weight: bold;
+}
+@mixin white_font{
+color: colors.$whitest;
+font-size:24px;
+
+}

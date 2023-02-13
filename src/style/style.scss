@@ -1,0 +1,83 @@
+@use 'colors.scss';
+@forward 'effects';
+@forward 'main';
+@forward 'contact';
+body{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    font-family: 'Hanuman';
+    overflow-x: hidden;
+}
+
+nav{
+   
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    padding: 10px 10px 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: colors.$gray;
+    border-bottom: 1px solid colors.$orange;
+    width:100%;
+    img{
+        width:300px;
+    }
+    .nav{
+        flex-shrink: 1;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+        column-gap: 40px;
+        padding-right: 60px;
+        a{
+            display: block;
+            padding: 0.5em 0.25em 0.5em 0.25em;
+            text-decoration: none;
+            color: colors.$blackText;
+            font-size: 1.6em;
+            font-weight: bold; 
+            &:hover{
+        transform: scale(120%);
+        color: colors.$orange;
+        transition: all 0.6s;
+    }
+        }
+        .active{
+            border-bottom: 4px solid colors.$orange;
+        }
+    }
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    padding: 20px 40px 0px 40px;
+    column-gap: 60px;
+    background-color: colors.$gray;
+    div{
+        display: flex;
+        flex-direction: column;
+        b{
+            color:colors.$orange;
+
+            font-size: large;
+        }
+        P{
+            margin: 5px 0px 5px 0px;
+        }
+        .line{
+            margin: 10px 0px 10px 0px;
+            width: 50px;
+            border: 2px solid colors.$orange;
+        }
+    }
+    img{
+        width:300px;
+    }
+}
+.placeholder{
+    height: 98px;
+    width: 100%;
+}
