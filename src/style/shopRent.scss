@@ -1,0 +1,16 @@
+
+.photo_frame{
+    position: relative;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    img{
+    width: 100vw;
+        max-height: 90vh;
+        position: absolute;
+        object-fit: cover;
+        top:0px;
+        z-index: 1;
+    }
+
+}
