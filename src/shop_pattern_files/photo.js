@@ -5,7 +5,7 @@ export default function Photo(props) {
   const white = { background: "#FFFFFF" };
   const gray = { background: "#D9D9D9" };
   const photo = [props.photo1, props.photo2, props.photo3];
-
+  
   const initialValue = {
     photoNumber: 1,
     currentPhoto: props.photo1,
@@ -54,18 +54,18 @@ export default function Photo(props) {
     <div className="photo_frame">
       <img src={photoReducer.currentPhoto} alt="" />
       <div className="photo_option_div">
-        <div className="left_arrow" onClick={() => dispatchPhoto("prev")}></div>
+        <div className="left_arrow" onClick={() => dispatchPhoto("prev")}><img src='/images/images/arrow.png' alt='poprzedni obrazek' /></div>
         <div
           className="right_arrow"
           onClick={() => dispatchPhoto("next")}
-        ></div>
+        ><img src='/images/images/arrow.png' alt='następny obrazek' /></div>
       </div>
       <div className="photo_description">
-        <p>{props.photoText}</p>
+        <h1>{props.photoText}</h1>
         <div className="circle">
-          <div style={photoReducer.currentPhoto === 1 ? white : gray}></div>
-          <div style={photoReducer.currentPhoto === 2 ? white : gray}></div>
-          <div style={photoReducer.currentPhoto === 3 ? white : gray}></div>
+          <div style={photoReducer.photoNumber === 1 ? white : gray}></div>
+          <div style={photoReducer.photoNumber === 2 ? white : gray}></div>
+          <div style={photoReducer.photoNumber === 3 ? white : gray}></div>
         </div>
       </div>
     </div>
