@@ -7,7 +7,7 @@ const jsxElements=props.elements.map((element,index)=>{
         <div className="category">
             <img src={element.photo} />
             <div>
-                <img src={eelement.icon alt=''} />
+                <img src={element.icon} alt='' />
                 <p>{element.text}</p></div>
         </div>
     )
