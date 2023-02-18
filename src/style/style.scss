@@ -11,33 +11,35 @@ body{
 }
 
 nav{
-   min-height: 98px;
+    height: 80px;
     position: fixed;
     top: 0px;
     z-index: 10;
-    padding: 10px 10px 10px 30px;
+    padding: 0px 10px 0px 10px;
     display: flex;
     align-items: center;
     justify-content: left;
     background-color: colors.$gray;
     border-bottom: 1px solid colors.$orange;
     width:100%;
+    margin: 0px 0px 0px 0px;
     img{
-        width:300px;
+        width:200px;
     }
     .nav{
         flex-shrink: 1;
         width: 100%;
+       
         display: flex;
         justify-content: right;
         column-gap: 40px;
-        padding-right: 60px;
+        padding-right: 40px;
         a{
             display: block;
             padding: 0.5em 0.25em 0.5em 0.25em;
             text-decoration: none;
             color: colors.$blackText;
-            font-size: 1.6em;
+            font-size: 1.4em;
             font-weight: bold; 
             &:hover{
         transform: scale(120%);
@@ -46,7 +48,7 @@ nav{
     }
         }
         .active{
-            border-bottom: 4px solid colors.$orange;
+            border-bottom: 3px solid colors.$orange;
         }
     }
 }
@@ -75,10 +77,10 @@ footer{
         }
     }
     img{
-        width:300px;
+        width:250px;
     }
 }
 .placeholder{
-    height: 118px;
+    height: 80px;
     width: 100%;
 }

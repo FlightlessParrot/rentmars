@@ -14,15 +14,15 @@ export default function Warp()
         }
         switch(location.pathname){
         case '/shop': setLink('/images/loga/maszyny_rentmars_logo_500.png'); break; 
-        case '/rent': setLink('/rent.png'); break;
+        case '/rent': setLink('/images/loga/rent.png'); break;
         default: setLink('/images/loga/nameless_500.png'); break;
         }
-    },[location.pathname])
+    },[location.pathname, redirect])
 
 
     return(<>
         <nav>
-            <div><img src={link} /></div>
+            <div><img src={link} alt='logo firmy'/></div>
             <div className="nav"><NavLink to='/main'>O nas</NavLink>
             <NavLink to='/shop'>Sklep</NavLink>
             <NavLink to='/rent'>Wypożyczalnia</NavLink>
@@ -30,7 +30,7 @@ export default function Warp()
         </nav>
         <Outlet />
         {location.pathname!=='/main' && (<footer>
-        <div><img loading="lazy" src='/images/loga/nameless_500.png' /> </div>
+        <div><img loading="lazy" src='/images/loga/nameless_500.png' alt='logo firmy'/> </div>
         <Foot title={'Dane firmy'} text={['Rentmars Marcin Zieleniewski', 'NIP: 7773128154', 'siedziba: ul. Rogozińska 55', '62-095 Murowana Goślina' ]} />
          <Foot title={'Kontakt'} text={['tel: +48 577 579 484', 'mail: biuro@rentmars.pl', 'adres: ul. Rogozińska 55', '62-095 Murowana Goślina' ]} />
          <Foot title={'Nasza działalność'} text={['Sklep', 'Wypożyczalnia', 'I więcej' ]} />
