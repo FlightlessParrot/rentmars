@@ -9,7 +9,7 @@ export default async function adminAction({request})
     const authorization='Basic '+btoa(login+":"+password)
     try{
         
-        const response = await fetch('http://localhost/rentmars-server/authenticate.php',{
+        const response = await fetch('http://localhost/rentmars-server/requests/authenticate.php',{
             method: 'GET',
             credentials: 'include',
             headers: {

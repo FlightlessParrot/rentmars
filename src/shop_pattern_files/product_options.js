@@ -35,7 +35,7 @@ text: 'Maszyny ogrodnicze'},
           ref={buildRef}
           type="radio"
           name="category"
-          value="building"
+          value="shop"
           required
         ></input>
         <input
@@ -45,7 +45,7 @@ text: 'Maszyny ogrodnicze'},
           ref={gardRef}
           type="radio"
           name="category"
-          value="garden"
+          value="rent"
           required
         ></input></fieldset>
         <Categories elements={elements} formRef={formRef} submit={submit}/>

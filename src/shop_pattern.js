@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import Products from "./shop_pattern_files/products";
 import { useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
+import product from './test/products'
 export default function ShopPattern(props) {
-  const data = useLoaderData();
-  useEffect(() => console.log(data), [data]);
+  const server=useLoaderData();
+  const data = product; 
+  useEffect(() => console.log(server), [server]);
   return (
     <>
       <div className="placeholder"> </div>
