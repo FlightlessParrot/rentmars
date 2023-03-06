@@ -4,6 +4,12 @@ import Main from './main'
 import Contact from "./contact";
 import Shop from "./shop_pattern.js"
 import shopLoader from "./loaders/shop_loader";
+import Admin from "./admin"
+import adminAction from "./actions/admin_action";
+import AdminPanel from "./admin_files/admin_panel";
+import AddProduct from "./admin_files/add_product";
+import addProduct from "./actions/add_product";
+import downloadImage from "./loaders/download_image";
 const photoShop=[
     '/images/images/shop_main_photos/1.jpg',
     '/images/images/shop_main_photos/2.jpg',
@@ -44,8 +50,34 @@ export const router = createBrowserRouter(
                 path: "rent",
                 loader: shopLoader,
                 element: <Shop key={2} photos={photoRent} shop={false} text={rentText} />,
-            }
+            },
+            
         ]
+        },
+        
+        {path: "/admin",
+            action: adminAction,
+            element: <Admin />,
+            children:[
+                {
+                    path:'panel',
+                    element: <AdminPanel />,
+                    children:[
+                        {
+                            path: 'addproduct',
+                            element: <AddProduct />,
+                            action: addProduct,
+                        },
+                        {
+                            path: 'edit/images/:shop/:id',
+                            loader: downloadImage,
+                            // action: sendImage,
+                            element: <Contact />
+
+                }
+            ]
+                }
+            ]
         }
        
     ], 

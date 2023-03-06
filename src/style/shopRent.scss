@@ -138,11 +138,14 @@
       justify-content: center;
       display: flex;
       flex-direction: column;
-      background-color: colors.$gray;
+      background-color: gray;
       color: colors.$gray;
       padding: 30px 30px 70px 30px;
       border-radius: 30px;
       box-shadow: 10px 10px 20px black;
+      &:hover{
+        cursor: pointer;
+      }
       > img {
         width: 250px;
       }
@@ -243,10 +246,12 @@
 .products{
   font-style: 'Inter';display: flex;
  background-color: colors.$gray;
- padding: 30px 10px 30px 10px;
+ padding: 30px 10px 30px 10px; column-gap: 30px;
+   row-gap: 30px;
   .product{
     margin: 10px 10px 10px 10px;
    background-color: colors.$whitest;
+  
    box-shadow: 10px 10px 15px black;
     img{
       width: 180px;

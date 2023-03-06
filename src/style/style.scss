@@ -3,11 +3,22 @@
 @forward 'main';
 @forward 'contact';
 @forward 'shopRent';
+@forward 'admin';
 body{
     margin: 0px 0px 0px 0px;
     padding: 0px 0px 0px 0px;
     font-family: 'Hanuman';
     overflow-x: hidden;
+}
+
+%darkness{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+    width: 100vw;
+    height: 100vh;
 }
 
 nav{
@@ -83,4 +94,23 @@ footer{
 .placeholder{
     height: 80px;
     width: 100%;
+}
+.darkness-loading {
+    @extend %darkness;
+    background-color: black;
+    opacity: 0.5;
+    
+}
+.darkness{
+    @extend %darkness;
+    background-color: rgba(black,0.5);
+    div{
+        padding: 30px 30px 30px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: white;
+        border-radius: 30px;
+    }
 }
