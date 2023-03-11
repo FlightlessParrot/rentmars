@@ -1,3 +1,155 @@
+@use 'colors';
+#login-div{
+    height: 100vh;
+    width:100vw;
+    display: flex;
+    position: fixed;
+    top:0px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: colors.$gray;
+    a{
+        text-decoration: none;
+        background-color: colors.$orange;
+        color:white;
+        align-self: start;
+        padding: 20px 20px 20px 20px;
+        margin: 10px 10px 10px;
+        box-shadow: 6px 6px 10px black;
+        position: absolute;
+        top:0px;
+        left:0px;
+    }
+    form{
+    display: flex;
+    flex-direction: column;
+    background-color: colors.$whitest;
+    padding: 20px 60px 50px 40px;
+    border: 2px solid colors.$orange;
+    border-radius: 10px;
+    box-shadow: 8px 8px 12px black;
+    *{
+        padding: 10px 10px 10px 10px;
+    }
+    button{
+        align-self: end;
+        background-color: colors.$orange;
+        color: white;
+        margin-top: 20px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}
+}
 #admin-nav{
 position: static;
+
+
+    a{
+        display: block;
+        margin: 0px 20px 0px 20px;
+        padding: 0.5em 0.25em 0.5em 0.25em;
+        text-decoration: none;
+        color: colors.$blackText;
+        font-size: 1em;
+        font-weight: bold; 
+        }
+    .active{
+        border-bottom: 3px solid colors.$orange;
+    }
+}
+
+.addPhotoForm{
+    display: flex;
+    flex-direction: column;
+    *{margin: 10px 20px 10px 20px;}
+
+}
+
+.add-product{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 20px 20px;
+    row-gap: 5px;
+    justify-content: center;
+    align-items: flex-start;
+    width: fit-content;
+    fieldset{
+        width:300px;
+    }
+    input[type='text']{
+        width: 300px;
+    }
+    >label{text-align: center;}
+    label{
+        margin-top: 10px;
+    }
+    div{
+        display: flex;
+        
+        justify-content: left;
+        *{margin:20px 10px 10px 0px;}
+    }
+    textarea{
+        height: 200px;
+        width:300px;
+    }
+}
+.admin_product_option{
+    fieldset{
+        margin: 10px 10px 10px 10px;
+        display: grid;
+        grid-template-columns: 1fr 30px;
+        flex-wrap: wrap;
+        row-gap: 10px;
+        label{
+            grid-column: 1 ;
+        }
+    }
+}
+.confirm-removal{
+   
+    display: flex;
+    flex-direction: column;
+    form{
+        display:flex;
+        flex-direction: column;
+        align-self: stretch;
+    }
+    div{
+        padding: 0px 0px 0px 0px;
+        display: flex;
+        flex-direction: row;
+       
+
+        align-items: stretch;
+        a{
+            margin-left: 30px;
+            margin-right:30px;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid black;
+            padding: 10px 5px 10px 5px;
+            background-color: whitesmoke;
+            color: black;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        button{
+            margin-left: 30px;
+            margin-right:30px;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 1px solid black;
+            padding: 10px 5px 10px 5px;
+            font-weight: bold;
+            color:white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+     
+    }
 }

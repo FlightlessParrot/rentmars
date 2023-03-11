@@ -11,7 +11,7 @@ export default function Login(props) {
       <Link to="/">Wróc na stronę główną</Link>
       <Form method="post" onSubmit={() => props.startLoading(true)}>
         <p>{props.response?.message}</p>
-        <label htmlFor="login">Login</label>
+        <div><label htmlFor="login">Login</label>
         <input
           id="login"
           name="login"
@@ -19,8 +19,8 @@ export default function Login(props) {
           value={login}
           onChange={(e) => setLogin(e.currentTarget.value)}
           required
-        ></input>
-        <label htmlFor="password">Hasło</label>
+        ></input></div>
+        <div><label htmlFor="password">Hasło</label>
         <input
           id="password"
           name="password"
@@ -28,7 +28,7 @@ export default function Login(props) {
           value={pass}
           onChange={(e) => setPass(e.currentTarget.value)}
           required
-        ></input>
+        ></input></div>
         <button type="submit">Zaloguj</button>
       </Form>
     </div>

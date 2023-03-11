@@ -1,18 +1,20 @@
-import { useRef, memo, useState, useEffect } from "react";
+import { useRef, memo, useState, useEffect, createContext } from "react";
 import MainImage from "./main_files/main_image";
 import NonSymetric from "./main_files/non_symetric";
 import ImageLinks from "./main_files/image_links";
 import IconText from "./main_files/icons_text";
 import Foot from "./warp_files/foot";
 import { CSSTransition } from "react-transition-group";
+import { useOutlet, useOutletContext } from "react-router-dom";
 
 let firstShoot = false;
 
+ export const Loader=createContext((l)=>{console.log(l)})
 export default function Main() {
   const [intro, setIntro] = useState(false);
 
   const introElements = useRef(null);
-
+  const context=useOutletContext();
   useEffect(() => {
     if (introElements.current) {
       const options = {
@@ -49,7 +51,8 @@ export default function Main() {
         <div className="placeholder"></div>
         <MainImage />
         <NonSymetric>
-          <ImageLinks />
+          <Loader.Provider value={context}>
+          <ImageLinks /></Loader.Provider>
         </NonSymetric>
         <div className="relative_text">
           <h1>O nas</h1>

@@ -1,5 +1,5 @@
 
-import { NavLink, Link, Outlet, useOutletContext, useNavigate } from "react-router-dom"
+import { NavLink, Link, Outlet, useOutletContext } from "react-router-dom"
 
 export default function AdminPanel()
 {
@@ -10,9 +10,9 @@ export default function AdminPanel()
     return(
         <>
         <nav id='admin-nav'> 
-        <NavLink to='./addproduct'>Dodaj Produkt </NavLink>
-        <NavLink to='./edit'>Edytuj Produkt</NavLink>
-        <NavLink to='./delete'>Usuń Produkt</NavLink>
+        <NavLink to='/admin/panel/add-product'>Dodaj Produkt </NavLink>
+        <NavLink to='/admin/panel/edit-product'>Edytuj lub Usuń Produkt</NavLink>
+        
         <Link to='/'>Wyloguj</Link>
         </nav>
         <Outlet context={context}/>

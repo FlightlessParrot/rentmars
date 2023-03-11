@@ -4,13 +4,6 @@
 @forward 'contact';
 @forward 'shopRent';
 @forward 'admin';
-body{
-    margin: 0px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-    font-family: 'Hanuman';
-    overflow-x: hidden;
-}
-
 %darkness{
     position: fixed;
     display: flex;
@@ -19,6 +12,16 @@ body{
     z-index: 11;
     width: 100vw;
     height: 100vh;
+}
+body{
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    font-family: 'Hanuman';
+    overflow-x: hidden;
+}
+#root{
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 nav{
@@ -32,31 +35,51 @@ nav{
     justify-content: left;
     background-color: colors.$gray;
     border-bottom: 1px solid colors.$orange;
-    width:100%;
+    width:100vw;
     margin: 0px 0px 0px 0px;
+    @media screen and (max-width: 1060px)
+    {
+    padding: 0px 0px 0px 0px;
+    }
     img{
         width:200px;
+        @media screen and (max-width: 1060px)
+    {
+        display:none;
+    }
     }
     .nav{
         flex-shrink: 1;
         width: 100%;
-       
+      
         display: flex;
         justify-content: right;
         column-gap: 40px;
-        padding-right: 40px;
+        padding-right: 40px;  
+         @media screen and (max-width: 1060px)
+    {
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+        column-gap:10px;
+        justify-content:space-around;
+        width: 100vw;
+        
+    }
         a{
             display: block;
             padding: 0.5em 0.25em 0.5em 0.25em;
             text-decoration: none;
             color: colors.$blackText;
-            font-size: 1.4em;
+            
             font-weight: bold; 
+            @media screen and (min-width: 1061px)
+            {
+            font-size: 1.4em;
             &:hover{
         transform: scale(120%);
         color: colors.$orange;
         transition: all 0.6s;
-    }
+    }}
         }
         .active{
             border-bottom: 3px solid colors.$orange;
@@ -64,6 +87,11 @@ nav{
     }
 }
 footer{
+    @media screen and (max-width: 1060px)
+    {
+        display:none;
+    }
+   
     display: flex;
     justify-content: space-between;
     align-items: top;
@@ -114,3 +142,100 @@ footer{
         border-radius: 30px;
     }
 }
+.products{
+    font-style: 'Inter';display: flex;
+   background-color: colors.$gray;
+   padding: 30px 10px 30px 10px; column-gap: 30px;
+     row-gap: 30px;
+     flex-wrap: wrap;
+     @media screen and (max-width: 420px)
+     {
+
+        flex-direction: column;
+        align-items: center;
+     }
+    .product{
+      margin: 10px 10px 10px 10px;
+     background-color: colors.$whitest;
+    display: flex;
+    flex-direction: column;
+     box-shadow: 10px 10px 15px black;
+      img{
+        width: 180px;
+        height: 100px;
+      }
+      b,p, label {
+        margin-left: 10px;
+      }
+      input{
+        margin: 5px 15px 5px 5px;
+      }
+      .details_div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px 10px 10px;
+        a{
+          text-decoration: none;
+          color: black;
+          padding: 10px 10px 10px 10px;
+          background-color: colors.$orange;
+          border: 1px solid #9C5D14;
+  
+        }
+  
+      }
+    }
+  }
+  .important-message{
+    display: block;
+    text-align: center;
+    color: red;
+    font-weight: bolder;
+    font-size: larger;
+    margin: 10px 10px 10px 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed red;
+  }
+  h1{
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+
+  .pager{
+flex-basis: 100%;
+display: flex;
+justify-content: center;
+column-gap: 10px;
+.page{ 
+    @media screen and (max-width: 420px)
+    {
+        height: 80px;
+        width: 80px;
+    display: none;}
+}
+button {
+    background-color: colors.$orange;
+    color: white;
+    border-color: white;
+    height: 50px;
+    width: 50px;
+    @media screen and (max-width: 420px)
+    {
+        height: 80px;
+        width: 80px;
+        font-size: 30px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.chosen-page{
+    border-color: colors.$orange;
+    color: colors.$orange;
+    background-color: colors.$whitest;
+}
+  }

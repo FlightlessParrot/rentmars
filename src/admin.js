@@ -12,8 +12,7 @@ export default function Admin() {
   useEffect(() => {
     startLoading(false);
     if (response?.value) {
-      console.log('jej')
-      console.log(!response.value)
+      
       setShowLogin(!response.value)
       setData({login: response.login, password: response.password})
       navigate("./panel");

@@ -13,7 +13,7 @@ export default function Photo(props) {
 
   const [photoReducer, dispatchPhoto] = useReducer(changePhoto, initialValue);
   useEffect(() => {
-    const time = setTimeout(() => dispatchPhoto("next"), 4000);
+    const time = setTimeout(() => dispatchPhoto("next"), 6000);
     return (
       () => {
         clearTimeout(time);
@@ -52,7 +52,7 @@ export default function Photo(props) {
 
   return (
     <div className="photo_frame">
-      <img src={photoReducer.currentPhoto} alt="" />
+      <img src={photoReducer.currentPhoto} key={photoReducer.photoNumber} alt="" />
       <div className="photo_option_div">
         <div className="left_arrow" onClick={() => dispatchPhoto("prev")}><img src='/images/images/arrow.png' alt='poprzedni obrazek' /></div>
         <div

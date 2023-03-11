@@ -1,14 +1,14 @@
-[{"id": 1,
+[{"id": 100,
 "name": "Model Fogo FH 3001R",
 "cena": "300 zł",
 "photo": "/images/server/f3001r.jpg"
 },
-{"id": 2,
+{"id": 101,
 "name": "Model Fogo FH 3001",
 "cena": "400 zł",
 "photo": "/images/server/f3001.jpg"
 },
-{"id": 3,
+{"id": 102,
 "name": "Model Fogo FH 6001",
 "cena": "600 zł",
 "photo": "/images/server/f6001.jpg"

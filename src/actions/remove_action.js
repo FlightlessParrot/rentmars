@@ -1,16 +1,17 @@
 
-export default async function adminAction({request})
+
+export default async function removeAction({request, params })
 {
-    
     const data=await request.formData()
-    console.log(data)
+
     const login= data.get('login')
     const password = data.get('password')
     const authorization='Basic '+btoa(login+":"+password)
+ 
     try{
         
-        const response = await fetch('http://localhost/rentmars-server/requests/authenticate.php',{
-            method: 'GET',
+        const response = await fetch('http://localhost/rentmars-server/requests/remove.php?database='+params.shop+'&id='+params.id,{
+            method: 'DELETE',
             credentials: 'include',
             headers: {
                 "Authorization": authorization
@@ -20,8 +21,8 @@ export default async function adminAction({request})
         {
            
             const log= await response.json()
-           
-            return (log ? {message:'logowanie udane', login: login, password: password, value: true} : {message: 'Wprowadzone dane są niepoprawne', value: false})
+           console.log(log)
+            return log
         }
         else{
             throw new Error('Wystąpił błąd serwera')
@@ -29,7 +30,7 @@ export default async function adminAction({request})
 
     }catch(e){
         console.log(e.message)
-        return {message: 'Wystąpił błąd', value: false}
+        return {message: e.message+' Nie udało się usunąć produktu.', success: false}
     }
 
 }

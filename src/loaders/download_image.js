@@ -1,19 +1,19 @@
 
 export default async function downloadImage({params})
 {
-    console.log(params.id)
+    const shop = params.shop
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/getimage.php?id='+params.id+'&shop='+params.shop,{
+        const response = await fetch('http://localhost/rentmars-server/requests/getImage.php?id='+params.id+'&shop='+shop,{
             method: 'GET',
             credentials: 'include',
           
         })
         if(response.ok)
         {
-            const log= await response.text()
+            const log= await response.json()
        
            console.log(log)
-           return log;
+           return {...log, productId: params.id, shop: params.shop};
         }
         else{
             throw new Error('Wystąpił błąd serwera')

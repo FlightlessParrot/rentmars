@@ -1,14 +1,14 @@
 import Photo from "./shop_pattern_files/photo";
 import ProductOptions from "./shop_pattern_files/product_options";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Products from "./shop_pattern_files/products";
 import { useLoaderData } from "react-router-dom";
 import { useEffect } from "react";
-import product from './test/products'
+
 export default function ShopPattern(props) {
-  const server=useLoaderData();
-  const data = product; 
-  useEffect(() => console.log(server), [server]);
+  const data=useLoaderData();
+
+  useEffect(() => console.log(data), [data]);
   return (
     <>
       <div className="placeholder"> </div>
@@ -18,7 +18,7 @@ export default function ShopPattern(props) {
         photo3={props.photos[2]}
         photoText={props.text.photoText}
       />
-      <ProductOptions />
+      <ProductOptions shop={props.shop}/>
       <div className="orange_div">
         <h2>Zobacz nasze produkty</h2>{" "}
       </div>
@@ -26,9 +26,12 @@ export default function ShopPattern(props) {
         <b>Zamówienie możesz złożyć mailowo lub telefoniczne</b>
         <Link to="/contact">Kontakt</Link>
       </div>
+   
       <div className="products">
-        <Products products={data} shop={true} />
+       {data?.products && <Products products={data.products} images={data.images} shop={props.shop} />}
       </div>
+      <Outlet context={data} />
+    
     </>
   );
 }

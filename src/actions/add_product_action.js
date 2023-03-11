@@ -1,5 +1,5 @@
 
-export default async function addProduct({request})
+export default async function addProductAction({request})
 {
     const data=await request.formData()
     const login=data.get('login')
@@ -20,7 +20,7 @@ export default async function addProduct({request})
         if(response.ok)
         {
             const log= await response.json()
-       
+            console.log(log)
             if(log.success)return({...log, shop: shop});
             else throw new Error('Wystąpił błąd serwera. Nie udało się dodać produktu. '+log?.message)
         }
