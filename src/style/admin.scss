@@ -153,3 +153,31 @@ position: static;
      
     }
 }
+
+#change-form{
+    display: flex;
+    flex-direction: column;
+    background-color: colors.$whitest;
+    padding: 20px 60px 50px 40px;
+    border: 2px solid colors.$orange;
+    border-radius: 10px;
+    box-shadow: 8px 8px 12px black;
+    *{
+        padding: 10px 10px 10px 10px;
+    }
+    input{
+        border:none;
+        
+        margin-top: 10px;
+    }
+    button{
+        align-self: end;
+        background-color: colors.$orange;
+        color: white;
+        margin-top: 20px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+}

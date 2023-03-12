@@ -67,7 +67,7 @@ export default  function  AddProduct(props)
             <label htmlFor="name">Nazwa</label>
             <input id='name' type='text' name='name' maxLength={25} value={name} onChange={(e)=>setName(e.currentTarget.value)} required/>  
             {shop && <><label htmlFor="cena">Cena</label>
-            <input type='number' step="0.01" maxLength={1000} value={price} onChange={(e)=>setPrice(e.currentTarget.value)} /> </>}
+            <input type='number' name="price" step="0.01" maxLength={1000} value={price} onChange={(e)=>setPrice(e.currentTarget.value)} /> </>}
             <div><label htmlFor="new">Czy jest to nowa maszyna?</label>
             <input id='new' type='checkbox' name='new' value='1' checked={newValue} onChange={()=>setNewValue((s)=>!s)}></input></div>
             <label htmlFor="desc">Opis</label>

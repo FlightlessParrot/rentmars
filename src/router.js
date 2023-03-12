@@ -1,22 +1,36 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Suspense } from "react";
+import React from "react";
 import Warp from "./warp";
-import Main from "./main";
-import Contact from "./contact";
-import Shop from "./shop_pattern.js";
+import Loading from "./universal/loading";
+
 import shopLoader from "./loaders/shop_loader";
-import Admin from "./admin";
 import adminAction from "./actions/admin_action";
-import AdminPanel from "./admin_files/admin_panel";
-import AddProduct from "./admin_files/add_product";
 import addProductAction from "./actions/add_product_action";
 import downloadImage from "./loaders/download_image";
-import ChangeProduct from "./admin_files/editing_products/change_product";
 import removeAction from "./actions/remove_action";
-import ConfirmRemoval from "./admin_files/editing_products/confirm_removal";
-import AddPhoto from "./admin_files/editing_products/add_photo";
+
 import addEditPhoto from "./actions/add_edit_photo_action";
 import productFromIdLoader from "./loaders/product_from_id_loader"
 import updateProduct from "./actions/update_product_action";
+import changePassword from "./actions/change_password";
+
+const Main = React.lazy(()=>import("./main"))
+const Contact =React.lazy(()=>import("./contact"));
+const Shop = React.lazy(()=>import("./shop_pattern.js"));
+const Admin = React.lazy(()=>import("./admin"));
+const AddProduct = React.lazy(()=>import("./admin_files/add_product"));
+const AdminPanel = React.lazy(()=>import("./admin_files/admin_panel"));;
+const ChangeProduct = React.lazy(()=>import("./admin_files/editing_products/change_product"));
+const ConfirmRemoval = React.lazy(()=>import("./admin_files/editing_products/confirm_removal"));
+const AddPhoto = React.lazy(()=>import("./admin_files/editing_products/add_photo"));
+const Details = React.lazy(()=>import("./shop_pattern_files/details"));
+const ChangePassword = React.lazy(()=>import("./admin_files/change_password"));
+// const shopLoader=async ({request, params})=>{
+//    const { default: loader}=await import("./loaders/shop_loader")
+// return loader({request, params})}
+
+
 const photoShop = [
   "/images/images/shop_main_photos/1.jpg",
   "/images/images/shop_main_photos/2.jpg",
@@ -41,25 +55,33 @@ export const router = createBrowserRouter(
       children: [
         {
           path: "main",
-          element: <Main />,
+          element:<Suspense fallback={<Loading />}> <Main /></Suspense>,
         },
         {
           path: "contact",
-          element: <Contact />,
+          element:<Suspense fallback={<Loading />}> <Contact /> </Suspense>,
         },
         {
           path: "shop",
           loader: shopLoader,
           element: (
-            <Shop key={1} photos={photoShop} shop={true} text={shopText} />
+            <Suspense fallback={<Loading />}>  <Shop key={1} photos={photoShop} shop={true} text={shopText} /></Suspense>
           ),
+          children:[]
         },
+       
         {
           path: "rent",
           loader: shopLoader,
           element: (
-            <Shop key={2} photos={photoRent} shop={false} text={rentText} />
+            <Suspense fallback={<Loading />} > <Shop key={2} photos={photoRent} shop={false} text={rentText} /></Suspense>
           ),
+        },  
+        {
+          path: ":shop/:id",
+          loader: productFromIdLoader,
+          element:<Suspense fallback={<Loading />}>  <Details /></Suspense>,
+
         },
       ],
     },
@@ -67,25 +89,25 @@ export const router = createBrowserRouter(
     {
       path: "/admin",
       action: adminAction,
-      element: <Admin />,
+      element: <Suspense fallback={<Loading />}> <Admin /></Suspense>,
       children: [
         {
           path: "panel",
-          element: <AdminPanel />,
+          element:<Suspense fallback={<Loading />}>  <AdminPanel /></Suspense>,
           children: [
             {
               path: "add-product",
-              element: <AddProduct edit={false}/>,
+              element: <Suspense fallback={<Loading />}> <AddProduct edit={false}/> </Suspense>,
               action: addProductAction,
             },
             {
               path: "edit-product",
-              element: <ChangeProduct />,
+              element: <Suspense fallback={<Loading />}> <ChangeProduct /> </Suspense>,
               loader: shopLoader,
               children: [
                 {
                     path:'remove/:shop/:id/confirm',
-                    element: <ConfirmRemoval/>,
+                    element:<Suspense fallback={<Loading />}>  <ConfirmRemoval/> </Suspense>,
                     loader:({params})=>{return {database: params.shop, id: params.id}},
                     action:removeAction,
 
@@ -94,7 +116,7 @@ export const router = createBrowserRouter(
             },
             {
               path: "edit-product/desc/:shop/:id",
-              element: <AddProduct  edit={true}/>,
+              element: <Suspense fallback={<Loading />}> <AddProduct  edit={true}/> </Suspense>,
               loader: productFromIdLoader,
               action: updateProduct
             },
@@ -102,17 +124,22 @@ export const router = createBrowserRouter(
               path: "edit-product/images/:shop/:id",
               loader: downloadImage,
               action: addEditPhoto,
-              element: <AddPhoto />,
+              element: <Suspense fallback={<Loading />}> <AddPhoto /> </Suspense>,
               children: [
                 {
                     path:'remove/:shop/:id/confirm',
-                    element: <ConfirmRemoval/>,
+                    element: <Suspense fallback={<Loading />}> <ConfirmRemoval/> </Suspense>,
                     loader:({params})=>{return {database: params.shop, id: params.id}},
                     action:removeAction,
 
                 }
               ],
             },
+            {
+              path:'change-password',
+              element: <ChangePassword />,
+              action: changePassword
+            }
           ],
         },
       ],

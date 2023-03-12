@@ -12,7 +12,7 @@ export default async function productFromIdLoader({params})
           
             const log= await response.json()  
           console.log({...log, shop, id})
-            return {...log, shop, id};
+            return {...log, shop: params.shop, id};
         }
         else{
             throw new Error('Wystąpił błąd serwera')
@@ -20,7 +20,7 @@ export default async function productFromIdLoader({params})
 
     }catch(e){
         console.log(e.message)
-        return e.message
+        return {success: false, message: e.message}
     }
 
 }

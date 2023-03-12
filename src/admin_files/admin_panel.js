@@ -12,7 +12,7 @@ export default function AdminPanel()
         <nav id='admin-nav'> 
         <NavLink to='/admin/panel/add-product'>Dodaj Produkt </NavLink>
         <NavLink to='/admin/panel/edit-product'>Edytuj lub Usuń Produkt</NavLink>
-        
+        <NavLink to='/admin/panel/change-password'>Zmień Hasło</NavLink>
         <Link to='/'>Wyloguj</Link>
         </nav>
         <Outlet context={context}/>

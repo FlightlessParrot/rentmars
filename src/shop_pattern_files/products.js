@@ -12,8 +12,9 @@ const jsxProducts = props.products.map(
     (element, index)=>{
 
         const photo=props.images.filter(e=>e.productId===element.id && e.main===1)
+        
         return(<div className="product" key={element.id}>
-            <img src={photo[0]} alt='zdjęcie produktu' />
+            <img src={'/server' +photo[0]?.path} alt='zdjęcie produktu' />
             <div className="product_info_div" />
             <b>{element.name}</b>
            

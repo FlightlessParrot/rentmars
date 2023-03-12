@@ -3,12 +3,12 @@ import ProductOptions from "./shop_pattern_files/product_options";
 import { Link, Outlet } from "react-router-dom";
 import Products from "./shop_pattern_files/products";
 import { useLoaderData } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function ShopPattern(props) {
   const data=useLoaderData();
 
-  useEffect(() => console.log(data), [data]);
+  useEffect(() => {console.log(data)}, [data]);
   return (
     <>
       <div className="placeholder"> </div>
@@ -30,7 +30,7 @@ export default function ShopPattern(props) {
       <div className="products">
        {data?.products && <Products products={data.products} images={data.images} shop={props.shop} />}
       </div>
-      <Outlet context={data} />
+      <Outlet  />
     
     </>
   );

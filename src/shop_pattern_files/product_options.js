@@ -26,7 +26,7 @@ text: 'Maszyny ogrodnicze'},
 
 ]
 useEffect(
-  ()=>submit(formRef.current,{method: 'get'}), [search]
+  ()=>submit(formRef.current,{method: 'get'}), [search, category]
   
 )
   return (

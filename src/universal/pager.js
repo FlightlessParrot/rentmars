@@ -23,7 +23,7 @@ export default function Pager(props) {
         </button>
       );
     }
-    console.log(array);
+
     return array;
   };
 
@@ -35,7 +35,7 @@ export default function Pager(props) {
   const showProducts = props.jsxProducts.filter(
     (element, index) =>
       index < pager.currentPage * pager.elements &&
-      index > (pager.currentPage - 1) * 20
+      index >= (pager.currentPage - 1) * 20
   );
 
   function reducer(state, action) {
