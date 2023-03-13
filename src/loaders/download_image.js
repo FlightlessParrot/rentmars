@@ -3,7 +3,7 @@ export default async function downloadImage({params})
 {
     const shop = params.shop
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/getImage.php?id='+params.id+'&shop='+shop,{
+        const response = await fetch('/server/requests/getImage.php?id='+params.id+'&shop='+shop,{
             method: 'GET',
             credentials: 'include',
           

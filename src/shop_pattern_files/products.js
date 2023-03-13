@@ -10,11 +10,11 @@ export default function Products(props)
 
 const jsxProducts = props.products.map(
     (element, index)=>{
-
-        const photo=props.images.filter(e=>e.productId===element.id && e.main===1)
         
+        const photo=props.images.filter(e=>e.productId===element.id && e.main==='1')
+        const src= photo[0]?.path ? '/server'+photo[0].path : ''
         return(<div className="product" key={element.id}>
-            <img src={'/server' +photo[0]?.path} alt='zdjęcie produktu' />
+            <img src={src} alt='zdjęcie produktu' />
             <div className="product_info_div" />
             <b>{element.name}</b>
            

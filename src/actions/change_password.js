@@ -9,7 +9,7 @@ export default async function updateProduct({ request})
     const authorization='Basic '+btoa(login+":"+password)
   
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/changePassword.php',{
+        const response = await fetch('/server/requests/changePassword.php',{
             method: 'POST',
             credentials: 'include',
             headers: {

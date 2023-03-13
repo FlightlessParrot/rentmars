@@ -145,5 +145,5 @@ export const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/" }
+ //{ basename: "/domains/rentmars.pl/public_html" }
 );

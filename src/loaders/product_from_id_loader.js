@@ -3,7 +3,7 @@ export default async function productFromIdLoader({params})
 {
    const shop=params.shop==='shop'? true:false;
    const id=params.id
-    const link = 'http://localhost/rentmars-server/requests/getProductFromId.php?shop='+shop+'&id='+id
+    const link = '/server/requests/getProductFromId.php?shop='+shop+'&id='+id
     try{
         const response = await fetch(link, {method: 'GET',
     credentials: 'include'})

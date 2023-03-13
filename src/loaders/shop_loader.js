@@ -10,7 +10,7 @@ export default async function shopLoader({request})
     console.log('?'+url.searchParams)
     
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/getProducts.php'+'?'+url.searchParams, {method: 'GET',
+        const response = await fetch('/server/requests/getProducts.php'+'?'+url.searchParams, {method: 'GET',
     credentials: 'include'})
     if(response.ok)
         {

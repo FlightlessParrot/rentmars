@@ -16,7 +16,7 @@ export default async function addEditPhoto({params, request })
     
  
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/setMainImage.php',{
+        const response = await fetch('/server/requests/setMainImage.php',{
             method:  'POST',
             credentials: 'include',
             headers: {

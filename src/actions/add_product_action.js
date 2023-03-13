@@ -9,7 +9,7 @@ export default async function addProductAction({request})
     const authorization='Basic '+btoa(login+":"+password)
     const shop=data.get('shop')
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/addproduct.php',{
+        const response = await fetch('/server/requests/addproduct.php',{
             method: 'POST',
             credentials: 'include',
             headers: {

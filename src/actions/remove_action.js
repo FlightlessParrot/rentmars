@@ -10,7 +10,7 @@ export default async function removeAction({request, params })
  
     try{
         
-        const response = await fetch('http://localhost/rentmars-server/requests/remove.php?database='+params.shop+'&id='+params.id,{
+        const response = await fetch('/server/requests/remove.php?database='+params.shop+'&id='+params.id,{
             method: 'DELETE',
             credentials: 'include',
             headers: {

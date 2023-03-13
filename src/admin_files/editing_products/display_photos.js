@@ -10,9 +10,9 @@ export default function DisplayPhotos(props)
         (element,index )=>{
         return(
             <div key={element.id} className='product'> 
-                <img src={element.path} alt='zdjęcie produktu' loading='lazy'/> 
+                <img src={'/server'+element.path} alt='zdjęcie produktu' loading='lazy'/> 
                 <div> <label htmlFor={'photo'+index}>Zdjęcie jest ikoną produktu?</label>
-                <input id={'photo'+index} type='radio' name='id' value={element.id} checked={element.main} onChange={()=>submit(formRef.current,{method: 'put'}) }/> 
+                <input id={'photo'+index} type='radio' name='id' value={element.id} checked={element.main==='1'} onChange={()=>submit(formRef.current,{method: 'put'}) }/> 
                 </div>
                 <div className="details_div">
                     

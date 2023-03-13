@@ -1,5 +1,5 @@
 import { Outlet, useLoaderData, useNavigate, useOutletContext} from "react-router-dom"
-import {  useEffect, useState } from "react";
+import {   useState } from "react";
 import DisplayPhotos from "./display_photos";
 import Loading from "../../universal/loading";
 export default function AddPhoto()
@@ -68,7 +68,7 @@ async function fetchMe(formData, loaderData, setResponse,setLoading, navigate)
     data.append('shop',loaderData.shop)
     
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/addImage.php',{
+        const response = await fetch('/server/requests/addImage.php',{
             method:  'POST',
             credentials: 'include',
             headers: {

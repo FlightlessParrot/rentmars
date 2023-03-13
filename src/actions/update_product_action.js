@@ -11,7 +11,7 @@ export default async function updateProduct({params, request})
     const shop= params.shop === 'shop' ? true:false;
     data.append('shop',shop)
     try{
-        const response = await fetch('http://localhost/rentmars-server/requests/changeProduct.php',{
+        const response = await fetch('/server/requests/changeProduct.php',{
             method: 'POST',
             credentials: 'include',
             headers: {
